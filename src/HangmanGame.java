@@ -28,9 +28,12 @@ public class HangmanGame extends javax.swing.JFrame {
         word = new javax.swing.JLabel();
         wordInput = new javax.swing.JTextField();
         enter = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         reset = new javax.swing.JButton();
+        guess = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        man = new javax.swing.JTextArea();
+        output = new javax.swing.JTextField();
+        guessInput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,29 +52,57 @@ public class HangmanGame extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
         reset.setText("Reset");
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
+
+        guess.setText("Enter Guess");
+        guess.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guessActionPerformed(evt);
+            }
+        });
+
+        man.setColumns(20);
+        man.setRows(5);
+        jScrollPane2.setViewportView(man);
+
+        output.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outputActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(word, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wordInput, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(enter))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(guess)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(word, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(wordInput)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(reset)))
+                        .addGap(0, 16, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(guessInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(output, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -82,10 +113,17 @@ public class HangmanGame extends javax.swing.JFrame {
                     .addComponent(word, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(wordInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enter))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(reset)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(guessInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reset)
+                    .addComponent(guess))
                 .addGap(8, 8, 8))
         );
 
@@ -93,19 +131,75 @@ public class HangmanGame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void wordInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wordInputActionPerformed
-        //input the word
-        String word = wordInput.getText();
     }//GEN-LAST:event_wordInputActionPerformed
 
     private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
-        //clearing the screen
-        
-        
-        
-        
-        
-        
+        //input the word
+        String word = wordInput.getText();
+
+        //clear the screen
+
+
+
+
+
+        //get the length of the word
+        int length = word.length();
+
+        //get character
+        char character = word.charAt(0);
+
+        //print out a line for each letter
+        for (int i = 0; i < length; i++) {
+
+           
+            //do not input numbers
+                if (character <= 0 || 
+                        character >= 0  );
+
+
+                output.setText("That is not a word");
+            
+            //use letters between a and z
+            if (character >= 'a'
+                    || character <= 'z') {
+
+                //find all of the letters and replace them with lines  
+                output.replaceSelection("_ ");
+            } else {
+                
+                //do not input numbers
+                if (character <= 0 || 
+                        character >= 0  );{
+
+
+                output.setText("That is not a word");
+
+
+
+
+
+
+            }
+        }
+
+
     }//GEN-LAST:event_enterActionPerformed
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+        // reset the game
+    }//GEN-LAST:event_resetActionPerformed
+
+    private void outputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputActionPerformed
+        // ask player 2 to guess a letter and tell them how many lives are left
+        output.setText("Player 2: " + " Guess a letter:");
+    }//GEN-LAST:event_outputActionPerformed
+
+    private void guessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessActionPerformed
+        // input the letter
+        String guess = output.getText();
+
+    }//GEN-LAST:event_guessActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,8 +237,11 @@ public class HangmanGame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton enter;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton guess;
+    private javax.swing.JTextField guessInput;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea man;
+    private javax.swing.JTextField output;
     private javax.swing.JButton reset;
     private javax.swing.JLabel word;
     private javax.swing.JTextField wordInput;

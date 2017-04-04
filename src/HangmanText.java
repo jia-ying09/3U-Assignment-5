@@ -5,7 +5,6 @@ import java.util.Scanner;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author linj4653
@@ -16,63 +15,52 @@ public class HangmanText {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         //insert Scanner
-        Scanner input = new Scanner (System.in);
-        
+        Scanner input = new Scanner(System.in);
+
         //ask player 1 to insert the word
         System.out.println("Player 1: Enter a word for Player 2 to guess:");
-    
+
         //inputting player 1 word
         String word = input.nextLine();
-        
+
         //clearing the screen
-        System.out.println("");
-        
-        
-        
-        
-        
-        //telling the player how many lives they have and to insert a guess
-        System.out.println("");
-        
+        //   System.out.println("");
+
+
+
+
+
+        ///telling the player how many lives they have and to insert a guess
+        // System.out.println("");
+
         //input the word
-        String word = wordInput.getText();
-        
+        //  String word = wordInput.getText();
+
         //clear screen
-        int clear = word.charAt(0);
-        
+        // int clear = word.charAt(0);
+
         //clear the screen
-        wordInput.setText("");
-        
+        // wordInput.setText("");
+
         //get character
-        char character = word.charAt(0);
-        
-        for (int i = 0; i < clear; i++) {
-  
-        }
+        //   char character = word.charAt(0);
 
-        //get the length of the word
-        int length = word.length();
+        //    for (int i = 0; i < clear; i++) {
 
-        
-
-        //print out a line for each letter
-        for (int i = 0; i < length; i++) {
-
-            //do not input numbers
-            // if (character >= 0 || character <= 0) {
-            //   output.getText();
-
-            // }else{ 
-
-            //use letters between a and z
-            if (character >= 'a'
-                    || character <= 'z') {
-
-                //find all of the letters and replace them with lines  
-                output.replaceSelection(" _ ");
-
-            }
     }
+    //get the length of the word
+    //   int length = word.length();
+    //print out a line for each letter
+    //   for (int i = 0; i < length; i++) {
+    //do not input numbers
+    // if (character >= 0 || character <= 0) {
+    //   output.getText();
+    // }else{ 
+    //use letters between a and z
+    //     if (character >= 'a'
+    //      || character <= 'z') {
+    //find all of the letters and replace them with lines  
+    //  output.replaceSelection(" _ ");
 }

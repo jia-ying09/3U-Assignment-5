@@ -202,6 +202,7 @@ public class HangmanGame extends javax.swing.JFrame {
         //get character of the first letter
         char character = word.charAt(0);
         
+        
         //clear the screen
         wordInput.setText("");
 
@@ -211,11 +212,18 @@ public class HangmanGame extends javax.swing.JFrame {
         //get guess input
         int input = word.charAt(0);
         String  guessPut = guess;
-        String  guessIn = word;
+        char  guessIn = character;
         
-        if (guessPut.equalsIgnoreCase(guessIn));{
+     
+        //if the guess letter is in the word input the letter
+
+         int blank = guess.charAt(0);
+        for (int n = 0; n < clear; n++) {
+            guessInput.setText("");
+            
+            if (character >= 'a'
+                    || character <= 'z') {
          output.setText(guess);
-         word.replace(word, guess);}
          
         if (guessPut.equals(guessIn) == false);{
             int lives = 6 - 1;

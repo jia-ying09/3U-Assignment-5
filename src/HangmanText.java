@@ -22,45 +22,77 @@ public class HangmanText {
         //ask player 1 to insert the word
         System.out.println("Player 1: Enter a word for Player 2 to guess:");
 
-        //inputting player 1 word
+        //inputting player 1 word{
         String word = input.nextLine();
 
         //clearing the screen
-        //   System.out.println("");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
 
 
+        //get the length of the word
+        int length = word.length();
+
+        //print out a line for each letter
+        for (int i = 0; i < length; i++) {
+
+            //get character
+            char character = word.charAt(0);
+            
+            //use letters between a and z
+            if (character >= 'a'
+                    || character <= 'z') {
+
+                
+                word.replaceFirst(word, "-");
+
+                //asking player 2 to enter their guess
+                System.out.println("Player 2: Insert your guess:");
+
+                //input the guess
+                int i = " - "();
 
 
+                        ///telling the player how many lives they have and to insert a guess
+                       // System.out.println("Player 2: You have " + lives + " lives left. Insert your guess:");
 
-        ///telling the player how many lives they have and to insert a guess
-        // System.out.println("");
+                //input the word
+                //  String word = wordInput.getText();
 
-        //input the word
-        //  String word = wordInput.getText();
+                //clear screen
+                // int clear = word.charAt(0);
 
-        //clear screen
-        // int clear = word.charAt(0);
+                //clear the screen
+                // wordInput.setText("");
 
-        //clear the screen
-        // wordInput.setText("");
+                //get character
+                //   char character = word.charAt(0);
 
-        //get character
-        //   char character = word.charAt(0);
+                //    for (int i = 0; i < clear; i++) {
 
-        //    for (int i = 0; i < clear; i++) {
-
-    }
-    //get the length of the word
-    //   int length = word.length();
-    //print out a line for each letter
-    //   for (int i = 0; i < length; i++) {
-    //do not input numbers
-    // if (character >= 0 || character <= 0) {
-    //   output.getText();
-    // }else{ 
-    //use letters between a and z
-    //     if (character >= 'a'
-    //      || character <= 'z') {
-    //find all of the letters and replace them with lines  
-    //  output.replaceSelection(" _ ");
-}
+            }
+            //get the length of the word
+            //   int length = word.length();
+            //print out a line for each letter
+            //   for (int i = 0; i < length; i++) {
+            //do not input numbers
+            // if (character >= 0 || character <= 0) {
+            //   output.getText();
+            // }else{ 
+            //use letters between a and z
+            //     if (character >= 'a'
+            //      || character <= 'z') {
+            //find all of the letters and replace them with lines  
+            //  output.replaceSelection(" _ ");
+        }

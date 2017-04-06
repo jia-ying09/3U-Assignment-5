@@ -1,8 +1,10 @@
+
+import java.awt.GraphicsConfiguration;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author linj4653
@@ -133,28 +135,24 @@ public class HangmanGame extends javax.swing.JFrame {
 
     private void wordInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wordInputActionPerformed
     }//GEN-LAST:event_wordInputActionPerformed
-
+    
     private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
         //input the word
         String word = wordInput.getText();
-        
-        //clear screen
-        int clear = word.charAt(0);
-        
+
         //clear the screen
         wordInput.setText("");
-        
+
         //get character
+        int dash = word.charAt(0);
+        
         char character = word.charAt(0);
         
-        for (int i = 0; i < clear; i++) {
-  
+        for (int i = 0; i < dash; i++) {
         }
 
         //get the length of the word
         int length = word.length();
-
-        
 
         //print out a line for each letter
         for (int i = 0; i < length; i++) {
@@ -171,66 +169,53 @@ public class HangmanGame extends javax.swing.JFrame {
 
                 //find all of the letters and replace them with lines  
                 output.replaceSelection(" _ ");
-
+                
             }
         }
+        //input the word
 
+        //inputting the letter
+        String enterGuess = guessInput.getText();
 
+        //see if the letter is in the word
+        if (enterGuess.equals(wordInput) == true);
+
+        //replace the dash with the letter
+        output.replaceSelection(enterGuess);
+        
+        
+        
     }//GEN-LAST:event_enterActionPerformed
-
+    
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // reset the game
-        reset.removeAll();
+        // boolean reset.reset();
     }//GEN-LAST:event_resetActionPerformed
-
+    
     private void enterGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterGuessActionPerformed
         //input the word
         String word = wordInput.getText();
 
-        // input the letter
-        String guess = guessInput.getText();
 
-        //clear screen
-        int clear = guess.charAt(0);
-        for (int i = 0; i < clear; i++) {
-            guessInput.setText("");
+        //new line
+        String nextLine = "\n";
+        output.setText(nextLine);
+
+        //inputting the letter
+        String enterGuess = guessInput.getText();
+
+        //char letter = word.charAt(0);
+
+        //see if the letter is in the word
+        if (enterGuess.equals(word) == true);
+        {
+            output.replaceSelection(enterGuess);
         }
-
-        //get the length of the word
-        int length = guess.length();
-
-        //get character of the first letter
-        char character = word.charAt(0);
         
         
-        //clear the screen
-        wordInput.setText("");
-
-        //print out a line for each letter
-        char letter = guess.charAt(0);
         
-        //get guess input
-        int input = word.charAt(0);
-        String  guessPut = guess;
-        char  guessIn = character;
-        
-     
-        //if the guess letter is in the word input the letter
-
-         int blank = guess.charAt(0);
-        for (int n = 0; n < clear; n++) {
-            guessInput.setText("");
-            
-            if (character >= 'a'
-                    || character <= 'z') {
-         output.setText(guess);
-         
-        if (guessPut.equals(guessIn) == false);{
-            int lives = 6 - 1;
-        //  output.setT ("You have " + lives " lives left. Guess a letter:")
-        }
     }//GEN-LAST:event_enterGuessActionPerformed
-
+    
     private void guessInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_guessInputActionPerformed

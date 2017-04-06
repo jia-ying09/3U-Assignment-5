@@ -37,9 +37,20 @@ public class HangmanText {
         System.out.println(" ");
         System.out.println(" ");
         System.out.println(" ");
-        System.out.println(" ");
-        System.out.println(" ");
 
+        
+        //clear screen
+        int clear = word.charAt(0);
+        
+        //clear the screen
+        wordInput.setText("");
+        
+        //get character
+        char character = word.charAt(0);
+        
+        for (int i = 0; i < clear; i++) {
+  
+        }
 
         //get the length of the word
         int length = word.length();
@@ -47,19 +58,23 @@ public class HangmanText {
         //print out a line for each letter
         for (int i = 0; i < length; i++) {
 
-            //get character
-            char character = word.charAt(0);
-            
+            //do not input numbers
+            // if (character >= 0 || character <= 0) {
+            //   output.getText();
+
+            // }else{ 
+
             //use letters between a and z
             if (character >= 'a'
                     || character <= 'z') {
 
-                
-                word.replaceFirst(word, "-");
+                //find all of the letters and replace them with lines  
+                output.replaceSelection(" _ ");
 
                 //asking player 2 to enter their guess
                 System.out.println("Player 2: Insert your guess:");
 
+                //a
                 //input the guess
                 int i = " - "();
 

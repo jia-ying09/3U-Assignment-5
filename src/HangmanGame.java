@@ -141,15 +141,12 @@ public class HangmanGame extends javax.swing.JFrame {
         String word = wordInput.getText();
 
         //clear the screen
-        wordInput.setText("");
+        wordInput.setText(word + "                                                                      ");
 
         //get character
-        int dash = word.charAt(0);
+        int wordIn = word.charAt(0);
         
         char character = word.charAt(0);
-        
-        for (int i = 0; i < dash; i++) {
-        }
 
         //get the length of the word
         int length = word.length();
@@ -182,9 +179,7 @@ public class HangmanGame extends javax.swing.JFrame {
 
         //replace the dash with the letter
         output.replaceSelection(enterGuess);
-        
-        
-        
+
     }//GEN-LAST:event_enterActionPerformed
     
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
@@ -196,7 +191,6 @@ public class HangmanGame extends javax.swing.JFrame {
         //input the word
         String word = wordInput.getText();
 
-
         //new line
         String nextLine = "\n";
         output.setText(nextLine);
@@ -205,15 +199,32 @@ public class HangmanGame extends javax.swing.JFrame {
         String enterGuess = guessInput.getText();
 
         //char letter = word.charAt(0);
+        //clear the guess input box
+        guessInput.setText("");
 
-        //see if the letter is in the word
-        if (enterGuess.equals(word) == true);
-        {
-            output.replaceSelection(enterGuess);
+        //get character
+        int wordIn = word.charAt(0);
+        
+        char character = word.charAt(0);
+
+        //get the length of the word
+        int length = word.length();
+
+        //print out a line for each letter
+        for (int i = 0; i < length; i++) {
+            
+            //find all of the letters and replace them with lines  
+            //see if the letter is in the word
+            if (enterGuess.equals (word) == true);
+            
+            {
+                String replace = enterGuess.replaceFirst(word, enterGuess);
+                
+                //find all of the letters and replace them with lines  
+                output.replaceSelection(enterGuess);            
+            }
+            if (enterGuess.equals(" _ "));
         }
-        
-        
-        
     }//GEN-LAST:event_enterGuessActionPerformed
     
     private void guessInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessInputActionPerformed

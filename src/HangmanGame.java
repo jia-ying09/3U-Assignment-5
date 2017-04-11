@@ -135,7 +135,7 @@ public class HangmanGame extends javax.swing.JFrame {
 
     private void wordInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wordInputActionPerformed
     }//GEN-LAST:event_wordInputActionPerformed
-    
+
     private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
         //input the word
         String word = wordInput.getText();
@@ -145,7 +145,7 @@ public class HangmanGame extends javax.swing.JFrame {
 
         //get character
         int wordIn = word.charAt(0);
-        
+
         char character = word.charAt(0);
 
         //get the length of the word
@@ -157,16 +157,14 @@ public class HangmanGame extends javax.swing.JFrame {
             //do not input numbers
             // if (character >= 0 || character <= 0) {
             //   output.getText();
-
             // }else{ 
-
             //use letters between a and z
             if (character >= 'a'
                     || character <= 'z') {
 
                 //find all of the letters and replace them with lines  
                 output.replaceSelection(" _ ");
-                
+
             }
         }
         //input the word
@@ -181,19 +179,18 @@ public class HangmanGame extends javax.swing.JFrame {
         output.replaceSelection(enterGuess);
 
     }//GEN-LAST:event_enterActionPerformed
-    
+
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // reset the game
         // boolean reset.reset();
     }//GEN-LAST:event_resetActionPerformed
-    
+
     private void enterGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterGuessActionPerformed
         //input the word
         String word = wordInput.getText();
 
         //new line
         String nextLine = "\n";
-        output.setText(nextLine);
 
         //inputting the letter
         String enterGuess = guessInput.getText();
@@ -204,7 +201,7 @@ public class HangmanGame extends javax.swing.JFrame {
 
         //get character
         int wordIn = word.charAt(0);
-        
+
         char character = word.charAt(0);
 
         //get the length of the word
@@ -212,19 +209,26 @@ public class HangmanGame extends javax.swing.JFrame {
 
         //print out a line for each letter
         for (int i = 0; i < length; i++) {
-            
-            //find all of the letters and replace them with lines  
-            //see if the letter is in the word
-            if (enterGuess.equals (word) == true);
-            
-            {
-                String replace = enterGuess.replaceFirst(word, enterGuess);
-                
+
+            //while (true) {
                 //find all of the letters and replace them with lines  
-                output.replaceSelection(enterGuess);            
-            }
-            if (enterGuess.equals(" _ "));
+                //see if the letter is in the word
+                if (enterGuess.equals(word) == true); {
+
+                    String replace = enterGuess.replaceFirst(word, enterGuess);
+                    String.nextLine();
+                    //find all of the letters and replace them with lines  
+                    output.replaceSelection(enterGuess);}
         }
+               /* } else {
+                    if (enterGuess.equals(word) == false) {
+                        output.setText(nextLine);
+                        //get the number of lives after each guess
+                        int lives = 6 - 1;
+
+                        //output the number of lives and tell player two to take another guess
+                      *  output.setText("You have " + lives + " lives left. Player two guess letter."); */
+                   
     }//GEN-LAST:event_enterGuessActionPerformed
     
     private void guessInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessInputActionPerformed

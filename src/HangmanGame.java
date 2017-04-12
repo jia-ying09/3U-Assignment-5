@@ -205,8 +205,8 @@ public class HangmanGame extends javax.swing.JFrame {
         int length = word.length();
 
         //print out a line for each letter
-        for (int i = 0; i < length; i++) {
-        }
+        for (int i = 0; i < length; i++); 
+       
         if (character >= 'a'
                 || character <= 'z') {
 
@@ -221,7 +221,7 @@ public class HangmanGame extends javax.swing.JFrame {
                 //find all of the letters and replace them with lines  
                 //see if the letter is in the word
                 for (int i = 0; i < length; i++) {
-                if (enterGuess.equals(character) == true) {
+                if (enterGuess.equals(wordInput) == true) {
 
                     String replace = enterGuess.replaceFirst(word, enterGuess);
 
@@ -234,7 +234,7 @@ public class HangmanGame extends javax.swing.JFrame {
                 } else {
 
                     //see if the letter is not in the word
-                    if (enterGuess.equals(character) == false) {
+                    if (enterGuess.equals(wordInput) == false) {
 
                         //new line
                         output.setText(nextLine);
@@ -250,7 +250,7 @@ public class HangmanGame extends javax.swing.JFrame {
 
                         //find all of the letters and replace them with lines  
                         //see if the letter is in the word
-                        if (enterGuess.equals(character) == true) {
+                        if (enterGuess.equals(wordInput) == true) {
 
                             String replace = enterGuess.replaceFirst(word, enterGuess);
 
@@ -258,12 +258,12 @@ public class HangmanGame extends javax.swing.JFrame {
                             output.setText(nextLine);
 
                             //find all of the letters and replace them with lines  
-                            output.replaceSelection(enterGuess);
+                            output.replaceSelection(replace);
 
                         } else {
 
                             //see if the letter is not in the word
-                            if (enterGuess.equals(character) == false) {
+                            if (enterGuess.equals(wordInput) == false) {
 
                                 //new line
                                 output.setText(nextLine);

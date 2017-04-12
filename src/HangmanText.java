@@ -37,7 +37,28 @@ public class HangmanText {
         System.out.println(" ");
         System.out.println(" ");
         System.out.println(" ");
+        System.out.println(" ");
 
+        //get the length of the word
+        int length = word.length();
+
+        //print out a line for each letter
+        for (int i = 0; i < length; i++) {
+            
+        }
+        char character = word.charAt(0);
+        
+                if (character >= 'a'
+                        || character <= 'z') {
+
+                    //find all of the letters and replace them with lines  
+                    String dash = " _ ";
+                  dash =  dash.replaceAll(word, dash);
+
+                  //output the lines
+                    System.out.println(dash); 
+
+        
         //asking player 2 to enter their guess
         System.out.println("Player 2 guess a letter");
 
@@ -45,23 +66,6 @@ public class HangmanText {
         String enterGuess = input.nextLine();
 
         char letter = word.charAt(0);
-
-        char character = word.charAt(0);
-
-        //get the length of the word
-        int length = word.length();
-
-
-        //print out a line for each letter
-        for (int i = 0; i < length; i++) {
-
-            while (true) {
-                if (character >= 'a'
-                        || character <= 'z') {
-
-                    //find all of the letters and replace them with lines  
-                    System.out.println(" _ "); 
-
 
                     while (true) {
 
@@ -74,22 +78,25 @@ public class HangmanText {
                             //find all of the letters and replace them with lines  
                             System.out.println(enterGuess + "_");
 
-                        } else {
+                        } else 
 
                             //see if the letter is not in the word
                             if (enterGuess.equals(character) == false) {
-
+                                
+                                //create counter for number of lives left
+                                //int n = n - 1;
+                                
                                 //get the number of lives after each guess
-                                int lives = 6 - 1;
+                                int lives = 6 - 1;{
 
                                 //output the number of lives and tell player two to take another guess
                                 System.out.println("You have " + lives + " lives left. Player two guess a letter.");
-                                break;
-                            }
+                               break;
+                            } 
                         }
-                    }
+                    }break;
                 }
             }
         }
     }
-}
+

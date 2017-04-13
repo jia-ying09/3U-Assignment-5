@@ -97,9 +97,10 @@ public class HangmanText {
                     }
 
                 } else {
+                  
                     // int n = 1 + 1;
-                    double life = Math.scalb(1, 0);
-                    double lives = 6 - life;
+                    double counter = Math.scalb(1, 0);
+                    double lives = 6 - counter - 1;
                     
                     //see if the letter is not in the word
                     if (enterGuess.equals(word) == false) {

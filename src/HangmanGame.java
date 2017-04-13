@@ -182,7 +182,7 @@ public class HangmanGame extends javax.swing.JFrame {
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // reset the game
-       // boolean hold.();
+        // boolean hold.();
     }//GEN-LAST:event_resetActionPerformed
 
     private void enterGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterGuessActionPerformed
@@ -205,81 +205,88 @@ public class HangmanGame extends javax.swing.JFrame {
         int length = word.length();
 
         //print out a line for each letter
-        for (int i = 0; i < length; i++); 
-       
+        for (int i = 0; i < length; i++);
+
         if (character >= 'a'
                 || character <= 'z') {
 
             //find all of the letters and replace them with lines  
             output.replaceSelection(" _ ");
-            
-        //inputting the letter
-        String enterGuess = guessInput.getText();
-        
+
+            //inputting the letter
+            String enterGuess = guessInput.getText();
+
             while (true) {
 
                 //find all of the letters and replace them with lines  
                 //see if the letter is in the word
                 for (int i = 0; i < length; i++) {
-                if (enterGuess.equals(wordInput) == true) {
+                    if (enterGuess.equals(wordInput) == true) {
 
-                    String replace = enterGuess.replaceFirst(word, enterGuess);
-
-                    //new line
-                    output.setText(nextLine);
-
-                    //find all of the letters and replace them with lines  
-                    output.replaceSelection(enterGuess);
-
-                } else {
-
-                    //see if the letter is not in the word
-                    if (enterGuess.equals(wordInput) == false) {
+                        String replace = enterGuess.replaceFirst(word, enterGuess);
 
                         //new line
                         output.setText(nextLine);
 
-                        //get the number of lives after each guess
-                        int lives = 6 - 1;
-
-                        //output the number of lives and tell player two to take another guess
-                        output.setText("You have " + lives + " lives left. Player two guess a letter.");
-                        break;
-                    }
-                    while (true) {
-
                         //find all of the letters and replace them with lines  
-                        //see if the letter is in the word
-                        if (enterGuess.equals(wordInput) == true) {
+                        output.replaceSelection(enterGuess);
 
-                            String replace = enterGuess.replaceFirst(word, enterGuess);
+                    } else {
+
+                        //see if the letter is not in the word
+                        if (enterGuess.equals(wordInput) == false) {
 
                             //new line
                             output.setText(nextLine);
 
-                            //find all of the letters and replace them with lines  
-                            output.replaceSelection(replace);
-
-                        } else {
-
-                            //see if the letter is not in the word
-                            if (enterGuess.equals(wordInput) == false) {
-
-                                //new line
-                                output.setText(nextLine);
-
-                                //get the number of lives after each guess
-                                int lives = 6 - 1;
-
+                            //get the number of lives after each guess
+                            int lives = 6 - 1;
+                            int thing = 1;
+                            //create counter for number of lives left
+                            for (int n = 0; n < thing; n++) {
                                 //output the number of lives and tell player two to take another guess
                                 output.setText("You have " + lives + " lives left. Player two guess a letter.");
                                 break;
                             }
                         }
+                        while (true) {
+
+                            //find all of the letters and replace them with lines  
+                            //see if the letter is in the word
+                            if (enterGuess.equals(wordInput) == true) {
+
+                                String replace = enterGuess.replaceFirst(word, enterGuess);
+
+                                //new line
+                                output.setText(nextLine);
+
+                                //find all of the letters and replace them with lines  
+                                output.replaceSelection(replace);
+
+                            } else {
+
+                                //see if the letter is not in the word
+                                if (enterGuess.equals(wordInput) == false) {
+
+                                    //new line
+                                    output.setText(nextLine);
+
+                                    int thing = 1;
+                                    //create counter for number of lives left
+                                    for (int n = 0; n < thing; n++) {
+                                        //get the number of lives after each guess
+                                        int lives = 6 - 1;
+
+                                        //output the number of lives and tell player two to take another guess
+                                        output.setText("You have " + lives + " lives left. Player two guess a letter.");
+                                        break;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
-        }
         }
     }//GEN-LAST:event_enterGuessActionPerformed
 

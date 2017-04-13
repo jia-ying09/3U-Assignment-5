@@ -45,49 +45,73 @@ public class HangmanText {
         //print out a line for each letter
         for (int i = 0; i < length; i++) {
 
+            String dash = "_";
             //find all of the letters and replace them with lines
-            System.out.println("_");
+            System.out.println(dash);
         }
 
-        //asking player 2 to enter their guess
-        System.out.println("Player 2 guess a letter");
-
-        //inputting the letter
-        String enterGuess = input.nextLine();
-
-        char letter = word.charAt(0);
-
+        //loop
         while (true) {
+            //asking player 2 to enter their guess
+            System.out.println("Player 2 guess a letter");
+
+            //inputting the letter
+            String enterGuess = input.nextLine();
+
+            char letter = word.charAt(0);
+
+
 
             for (int i = 0; i < length; i++) {
+
+                //converting the integer to string
                 String str = Integer.toString(i);
 
                 //find all of the letters and replace them with lines  
                 //see if the letter is in the word
-                if (enterGuess.equals(i) == true) {
+                if (enterGuess.equalsIgnoreCase(word) == true) {
 
-                    String replace = enterGuess.replaceFirst(word, enterGuess);
+                    //get the length of the letter
+                    int letterLength = word.length();
+
+                    String replace = "_".replaceAll("_", enterGuess);
 
                     //find all of the letters and replace them with lines  
-                    System.out.println(enterGuess + " _ ");
+                    System.out.println(enterGuess);
+
+                    //subtracting the number of correct letters by the number of letters in the word
+                    length = letterLength - length;
+
+                    //output the amount of dashes left and output it
+                    for (int n = 0; n < length; n++) {
+                        System.out.println(" _ ");
+
+                        
+                        //if the player guesses the word output "CONGRATULATIONS! YOU WIN!"
+                        
+                        if (enterGuess.equalsIgnoreCase(word) == true) {
+                            
+                        }
+                        System.out.println("CONGRATULATIONS! YOU WIN!");
+                        break;
+                    }
 
                 } else {
-
+                    // int n = 1 + 1;
+                    double life = Math.scalb(1, 0);
+                    double lives = 6 - life;
+                    
                     //see if the letter is not in the word
-                    if (enterGuess.equals(i) == false) {
+                    if (enterGuess.equals(word) == false) {
 
-                        int thing = 1;
+                        //int thing = 1;
                         //create counter for number of lives left
-                        for (int n = 0; n < thing; n++) {
-                            //int n = n - 1;
-                            //get the number of lives after each guess
-                            int lives = 6;
-                            {
+                        for (int n = 0; n < lives; n++) {
 
-                                //output the number of lives and tell player two to take another guess
-                                System.out.println("You have " + lives + " lives left. Player two guess a letter.");
-                                break;
-                            }
+                            //get the number of lives after each guess
+                            //output the number of lives and tell player two to take another guess
+                            System.out.println("You have " + lives + " lives left. Player two guess a letter.");
+                            String takeAGuess = input.nextLine();
                         }
                     }
                 }

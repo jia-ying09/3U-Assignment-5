@@ -1,5 +1,6 @@
 
 import java.awt.GraphicsConfiguration;
+import java.util.Scanner;
 
 /*
  * To change this template, choose Tools | Templates
@@ -30,7 +31,6 @@ public class HangmanGame extends javax.swing.JFrame {
         word = new javax.swing.JLabel();
         wordInput = new javax.swing.JTextField();
         enter = new javax.swing.JButton();
-        reset = new javax.swing.JButton();
         enterGuess = new javax.swing.JButton();
         guessInput = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -51,13 +51,6 @@ public class HangmanGame extends javax.swing.JFrame {
         enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterActionPerformed(evt);
-            }
-        });
-
-        reset.setText("Reset");
-        reset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetActionPerformed(evt);
             }
         });
 
@@ -94,13 +87,8 @@ public class HangmanGame extends javax.swing.JFrame {
                                 .addComponent(word, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(wordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(guess, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -124,9 +112,7 @@ public class HangmanGame extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reset)
-                    .addComponent(enterGuess))
+                .addComponent(enterGuess)
                 .addGap(8, 8, 8))
         );
 
@@ -137,157 +123,135 @@ public class HangmanGame extends javax.swing.JFrame {
     }//GEN-LAST:event_wordInputActionPerformed
 
     private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
+        //insert Scanner
+        Scanner input = new Scanner(System.in);
+        int right = 0;
+        int wrong = 0;
+
         //input the word
         String word = wordInput.getText();
-
+        String words = word;
         //clear the screen
         wordInput.setText(word + "                                                                      ");
-
-        //get character
-        int wordIn = word.charAt(0);
-
-        char character = word.charAt(0);
 
         //get the length of the word
         int length = word.length();
 
         //print out a line for each letter
         for (int i = 0; i < length; i++) {
-
-            //do not input numbers
-            // if (character >= 0 || character <= 0) {
-            //   output.getText();
-            // }else{ 
-            //use letters between a and z
-            if (character >= 'a'
-                    || character <= 'z') {
-
-                //find all of the letters and replace them with lines  
-                output.replaceSelection(" _ ");
-
-            }
+            String one = word.substring(i, i + 1);
+            //get character
+            char character = word.charAt(i);
+            word = word.replace(character, '-');
+            output.setText(word);
         }
-        //input the word
 
-        //inputting the letter
-        String enterGuess = guessInput.getText();
+        StringBuilder dash = new StringBuilder(word);
 
-        //see if the letter is in the word
-        if (enterGuess.equals(wordInput) == true);
-
-        //replace the dash with the letter
-        output.replaceSelection(enterGuess);
 
     }//GEN-LAST:event_enterActionPerformed
 
-    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-        // reset the game
-        // boolean hold.();
-    }//GEN-LAST:event_resetActionPerformed
-
     private void enterGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterGuessActionPerformed
+        //insert Scanner
+        Scanner input = new Scanner(System.in);
+        int right = 0;
+        int wrong = 0;
+
         //input the word
         String word = wordInput.getText();
+        String words = word;
 
-        //new line
-        String nextLine = "\n";
-
-        //char letter = word.charAt(0);
-        //clear the guess input box
-        guessInput.setText("");
-
-        //get character
-        int wordIn = word.charAt(0);
-
-        char character = word.charAt(0);
+        //clear the screen
+        wordInput.setText(word + "                                                                      ");
 
         //get the length of the word
         int length = word.length();
 
         //print out a line for each letter
-        for (int i = 0; i < length; i++);
+        for (int i = 0; i < length; i++) {
+            String one = word.substring(i, i + 1);
+            //get character
+            char character = word.charAt(i);
+            word = word.replace(character, '-');
+            output.setText(word);
+        }
 
-        if (character >= 'a'
-                || character <= 'z') {
+        StringBuilder dash = new StringBuilder(word);
 
-            //find all of the letters and replace them with lines  
-            output.replaceSelection(" _ ");
+        while ((wrong < 6) && (right < length)) {
 
-            //inputting the letter
-            String enterGuess = guessInput.getText();
+            int x = 0;
+            // showing the start of the gallows
+            if (wrong == 0) //showing the word with their current correctly guessed letters and asking for a guess
+            {
+                System.out.println(dash);
+            }
+            output.setText("Enter your guess");
 
-            while (true) {
+            //next letter typed is your guess
+            String guess = input.nextLine();
+            char guesses = guess.charAt(0);
 
-                //find all of the letters and replace them with lines  
-                //see if the letter is in the word
-                for (int i = 0; i < length; i++) {
-                    if (enterGuess.equals(wordInput) == true) {
+            //comparing guess against each letter in the word and if it correct replace the dash with the letter
+            for (int i = 0; i < length;) {
+                char letter = words.charAt(i);
+                if (guesses == letter) {
 
-                        String replace = enterGuess.replaceFirst(word, enterGuess);
+                    right++;
+                    x++;
 
-                        //new line
-                        output.setText(nextLine);
+                    dash.setCharAt(i, guesses);
 
-                        //find all of the letters and replace them with lines  
-                        output.replaceSelection(enterGuess);
+                }
+                i++;
+            }
 
-                    } else {
+            //tell the plyer how many lives they have left
+                                  
+            
+            if (x < 1) {
+                wrong++;
 
-                        //see if the letter is not in the word
-                        if (enterGuess.equals(wordInput) == false) {
+                if (wrong == 1) {
+                    output.setText("You have 5 lives left");
 
-                            //new line
-                            output.setText(nextLine);
+                }
 
-                            //get the number of lives after each guess
-                            int lives = 6 - 1;
-                            int thing = 1;
-                            //create counter for number of lives left
-                            for (int n = 0; n < thing; n++) {
-                                //output the number of lives and tell player two to take another guess
-                                output.setText("You have " + lives + " lives left. Player two guess a letter.");
-                                break;
-                            }
-                        }
-                        while (true) {
+                if (wrong == 2) {
+                    output.setText("You have 4 lives left");
+                }
 
-                            //find all of the letters and replace them with lines  
-                            //see if the letter is in the word
-                            if (enterGuess.equals(wordInput) == true) {
+                if (wrong == 3) {
+                    output.setText("You have 3 lives left");
+                }
 
-                                String replace = enterGuess.replaceFirst(word, enterGuess);
+                if (wrong == 4) {
+                    output.setText("You have 2 lives left");
+                }
 
-                                //new line
-                                output.setText(nextLine);
-
-                                //find all of the letters and replace them with lines  
-                                output.replaceSelection(replace);
-
-                            } else {
-
-                                //see if the letter is not in the word
-                                if (enterGuess.equals(wordInput) == false) {
-
-                                    //new line
-                                    output.setText(nextLine);
-
-                                    int thing = 1;
-                                    //create counter for number of lives left
-                                    for (int n = 0; n < thing; n++) {
-                                        //get the number of lives after each guess
-                                        int lives = 6 - 1;
-
-                                        //output the number of lives and tell player two to take another guess
-                                        output.setText("You have " + lives + " lives left. Player two guess a letter.");
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                if (wrong == 5) {
+                    output.setText("You have 1 life left");
+                }
+                if (wrong == 6) {
+                    output.setText("You have no lives left");
                 }
             }
+
         }
+
+        //telling them they won
+        if (right == length) {
+            String dashes = dash.toString();
+            output.setText(dashes);
+            output.setText("YOU WIN!");
+
+            //telling them they lost and telling them what the word was
+        } else {
+            output.setText("GAME OVER");
+            output.setText("The word was " + words);
+        }
+
+
     }//GEN-LAST:event_enterGuessActionPerformed
 
     private void guessInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessInputActionPerformed
@@ -335,7 +299,6 @@ public class HangmanGame extends javax.swing.JFrame {
     private javax.swing.JTextField guessInput;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea output;
-    private javax.swing.JButton reset;
     private javax.swing.JLabel word;
     private javax.swing.JTextField wordInput;
     // End of variables declaration//GEN-END:variables

@@ -35,16 +35,8 @@
                               <Component id="wordInput" min="-2" pref="191" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="enter" min="-2" pref="89" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="reset" min="-2" pref="92" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="enter" min="-2" pref="89" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -75,10 +67,7 @@
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="157" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="reset" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="enterGuess" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="enterGuess" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -101,14 +90,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="reset">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Reset"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="enterGuess">
